@@ -19,7 +19,7 @@ pipeline{
           stage('integration testing'){
 
                steps{
-                   sh 'mnv verify -DskiUnitTests'
+                   sh 'mvn verify -DskiUnitTests'
                }     
           }
      }

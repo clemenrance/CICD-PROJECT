@@ -57,12 +57,11 @@ pipeline{
                     [
                         [
                             artifactId: 'springboot', 
-                            classifier: '', 
-                            file: 'target/Uber.jar', 
+                            classifier: '', file: 'target/Uber.jar', 
                             type: 'jar'
-                        ]
+                            ]
                     ], 
-                    credentialsId: '', 
+                    credentialsId: 'exus-auth', 
                     groupId: 'com.example', 
                     nexusUrl: '54.164.228.127:8081', 
                     nexusVersion: 'nexus3', 

@@ -9,6 +9,12 @@ pipeline{
                steps{
                    git branch: 'main', url: 'https://github.com/clemenrance/CICD-PROJECT.git'
                }
+            }   
+          stage('unit testig'){
+
+               steps{
+                   sh 'mvn test'
+               }     
           }
      }
 }

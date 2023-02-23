@@ -32,7 +32,7 @@ pipeline{
 
                steps{
                    script{
-                    withSonarQubeEnv(credentialsId: 'sonarqube-api-key') {
+                    withSonarQubeEnv(credentialsId: 'new-auth') {
                       sh 'mvn clean package sonar:sonar'
                    }
                }     
@@ -63,7 +63,7 @@ pipeline{
                     ], 
                     credentialsId: 'exus-auth', 
                     groupId: 'com.example', 
-                    nexusUrl: '54.164.228.127:8081', 
+                    nexusUrl: '54.204.251.196:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
                     repository: 'demoapplication-release', 

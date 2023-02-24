@@ -53,15 +53,16 @@ pipeline{
             steps{
 
                 script{
-                    nexusArtifactUploader artifacts: 
+                   nexusArtifactUploader artifacts: 
                     [
-                        [
+                       [
                             artifactId: 'springboot', 
-                            classifier: '', file: 'target/Uber.jar', 
+                            classifier: '', 
+                            file: 'target/Uber.jar', 
                             type: 'jar'
-                            ]
-                    ], 
-                    credentialsId: 'exus-auth', 
+                        ]
+                     ], 
+                    credentialsId: 'nexus-authentication', 
                     groupId: 'com.example', 
                     nexusUrl: '54.204.251.196:8081', 
                     nexusVersion: 'nexus3', 

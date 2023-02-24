@@ -53,36 +53,35 @@ pipeline{
             steps{
 
                 script{
-
-                   nexusArtifactUploader artifacts: 
+                 nexusArtifactUploader artifacts: 
+                 [
                     [
-                        [
-                          artifactId: 'springboot', 
-                          classifier: '', 
-                          file: 'target/Uber.jar', 
-                          type: 'jar'
-                          ]
-                     ], 
-                    credentialsId: 'nexus-auth', 
-                    groupId: 'com.example', 
-                    nexusUrl: '54.208.50.55:8081', 
-                    nexusVersion: 'nexus3', 
-                    protocol: 'http', 
-                    repository: 'demoapp-release', 
-                    version: '1.2.3'
+                        artifactId: 'springboot', 
+                        classifier: '', 
+                        file: 'target/Uber.jar', 
+                        type: 'jar'
+                        ]
+                 ], 
+                        credentialsId: 'nexus-auth', 
+                        groupId: 'com.example', 
+                        nexusUrl: '54.208.50.55:8081', 
+                        nexusVersion: 'nexus3', 
+                        protocol: 'http', 
+                        repository: 'demoapp-release', 
+                        version: '1.2.3'   
+                   }
                 }
             }
-       }
-       stage('Docker Image Build'){
+            stage('Docker Image Build'){
 
-         steps{
+              steps{
 
-            script{
-              sh 'docker image build -t $JOB_NAME:$BUILD_ID.'
-              sh 'docker image tag $JOB_NAME:v1$BUILD_ID clemenrance/$job_NAME:V1.$BUILD_ID'
-              sh 'docker image tag $JOB_NAME:v1.$BUILD_ID clemenrance/$JOB_NAME:latest'
+                script{
+                 sh 'docker image build -t $JOB_NAME:$BUILD_ID.'
+                 sh 'docker image tag $JOB_NAME:v1$BUILD_ID clemenrance/$job_NAME:V1.$BUILD_ID'
+                 sh 'docker image tag $JOB_NAME:v1.$BUILD_ID clemenrance/$JOB_NAME:latest'
+               }
             }
-         }
-       }
+        }
     }
-}  
+}

@@ -55,7 +55,7 @@ pipeline{
                 script{
 
                    def readPomVersion = readMavenPom file: 'pom.xml'
-                   
+
                    nexusArtifactUploader artifacts: 
                     [
                         [
@@ -65,7 +65,7 @@ pipeline{
                           type: 'jar'
                           ]
                      ], 
-                    credentialsId: 'nexus-authentication', 
+                    credentialsId: 'nexus-auth', 
                     groupId: 'com.example', 
                     nexusUrl: '54.208.50.55:8081', 
                     nexusVersion: 'nexus3', 

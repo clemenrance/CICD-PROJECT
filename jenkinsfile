@@ -44,7 +44,7 @@ pipeline{
 
                    script{
 
-                    waitForQualityGate abortPipeline: false, credentialsId: 'new-aauth'
+                    waitForQualityGate abortPipeline: false, credentialsId: 'new-auth'
                 }
             }
          }
